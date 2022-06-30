@@ -102,7 +102,6 @@ function CreateListing() {
         else {
             geolocation.lat = parseFloat(latitude);
             geolocation.lng = parseFloat(longitude);
-            location = address;
         }
 
 
@@ -166,9 +165,9 @@ function CreateListing() {
         }
 
         // Clean-up of formDataCopy (remove the fields that are not needed)
+        formDataCopy.location = address;
         delete formDataCopy.images;
         delete formDataCopy.address;
-        location && (formDataCopy.location = location);
         !formDataCopy.offer && delete formDataCopy.discountedPrice;
         console.log(formDataCopy);
         const docRef = await addDoc(collection(db, "listings"), formDataCopy);
