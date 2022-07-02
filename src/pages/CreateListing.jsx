@@ -169,7 +169,6 @@ function CreateListing() {
         delete formDataCopy.images;
         delete formDataCopy.address;
         !formDataCopy.offer && delete formDataCopy.discountedPrice;
-        console.log(formDataCopy);
         const docRef = await addDoc(collection(db, "listings"), formDataCopy);
 
         setLoading(false);
